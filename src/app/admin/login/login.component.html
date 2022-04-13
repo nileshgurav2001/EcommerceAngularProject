@@ -1,0 +1,39 @@
+<section class="our_offer section_padding">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-lg-6 col-md-6">
+                <div class="col-lg-12" [innerHTML]="message"></div>
+                <div class="col-lg-12">
+                    <form [formGroup]="data" (ngSubmit)="submit(data.value)">
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form2Example1">Email address</label>
+                            <input type="email" id="form2Example1" class="form-control"[ngClass]="{'red':data.controls.email.invalid && data.controls.email.touched}" name="email" formControlName="email" />
+                            <span *ngIf="data.controls.email.invalid && data.controls.email.touched">Please enter valid email</span>
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form2Example2">Password</label>
+                            <input type="password" id="form2Example2" name="password" class="form-control" [ngClass]="{'red':data.controls.password.invalid && data.controls.password.touched}" formControlName="password" />
+                            <span  *ngIf="data.controls.password.invalid && data.controls.password.touched">Please enter valid password</span>
+                        </div>
+
+
+
+                        <!-- 2 column grid layout for inline styling -->
+                        <!-- Submit button -->
+                        <button type="submit" [disabled]="!data.valid" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+                    
+                    </form>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</section>

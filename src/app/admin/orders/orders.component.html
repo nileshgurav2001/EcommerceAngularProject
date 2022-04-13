@@ -1,0 +1,64 @@
+<section class="our_offer section_padding">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-lg-3">
+                <!-- <app-admin-menus></app-admin-menus> -->
+            </div>
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4 style="color: black;">Orders</h4>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <div class="col-lg-12">
+                <a routerLink="../product/0" class="btn btn-danger mb-3" style="position:relative; left: 88%;">Orders</a><br>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>No</th>
+                        <th>Imagepath</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobileno</th>
+                        <th>Address</th>
+                        <th>Pincode</th>
+                        <!-- <th>Order DATE</th> -->
+                        <th>Status</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Shipping</th>
+                        <th>Action</th>
+
+                    </tr>
+                    <tr *ngFor="let order of orders; let i= index">
+                        <td>{{i+1}}</td>
+                        <td>
+                            <img src="{{ api.baseurl + orders.imagepath }}" style="height:80px;" />
+                        </td>
+                        <!-- <td>{{orders.imagepath}}</td> -->
+                        <td>{{order.name}}</td>
+                        <td>{{order.email}}</td>
+                        <td>{{order.mobileno}}</td>
+                        <td>{{order.address}}</td>
+                        <td>{{order.pincode}}</td>
+                        <!-- <td>{{order.date}}</td> -->
+                        <td>{{order.status}}</td>
+                        <td>{{order.quantity}}</td>
+                        <td>{{order.price}}</td>
+                        <td>{{order.shipping}}</td>
+                       
+
+                        <td>
+                            <a class="btn btn-primary button2" routerLink="../product/{{order._id}}">Edit</a>
+                            <a class="btn btn-warning button2" style="margin-left: 1%;"
+                               (click)="delete(order._id)" >Delete</a>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

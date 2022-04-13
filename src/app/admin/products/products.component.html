@@ -1,0 +1,67 @@
+<section class="our_offer section_padding">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-lg-3">
+                <!-- <app-admin-menus></app-admin-menus> -->
+            </div>
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4 style="color: black;">Product</h4>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <div class="col-lg-12">
+                <a routerLink="../product/0" class="btn btn-danger mb-3" style="position:relative; left: 88%;">Add Products</a><br>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>No</th>
+                        <th>Imagepath</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>MRP</th>
+                        <th>Price</th>
+                        <th>Instock</th>
+                        <th>Status</th>
+                        <th>SKU</th>
+                        <th>Sizes</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr *ngFor="let product of products; let i= index">
+                        <td>{{i+1}}</td>
+                        <td>
+                            <img src="{{ baseurl + product.imagepath }}" style="height:80px;" />
+                        </td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.description}}</td>
+                        <td>{{product.mrp}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.instock}}</td>
+                        <td>{{product.status}}</td>
+                        <td>{{product.sku}}</td>
+                        <td>{{product.sizes}}</td>
+                     
+                        <td>
+                            <a class="btn btn-primary button2" routerLink="../product/{{product._id}}">Edit</a>
+                            <a class="btn btn-warning button2" style="margin-left: 1%;"
+                                (click)="delete(product._id)">Delete</a>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- <div class="col-lg-12">
+                <form [formGroup]="productdata" (ngSubmit)="submit(productdata.value)">
+                    <input type="hidden" name="id" formControlName="id" />  
+                    <label for="">Products : </label><br>
+                    <input type="text" class="form-control" name="name" formControlName="name"/><br>
+                    <button type="submit" [disabled]="!productdata.valid" class="btn btn-success">Save</button><br><br>               
+                </form>
+            </div> -->

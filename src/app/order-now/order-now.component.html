@@ -1,0 +1,95 @@
+<section class="our_offer section_padding" *ngIf="product != null">
+  <div class="container">
+    <div class="row align-items-center justify-content-between">
+      <div class="col-lg-12">
+
+        <div class="review_box">
+          <div style="display:flex;">
+            <img src="{{ api.baseurl + product.imagepath }}" style="height:50px;" />          
+            <h4>{{ product.name }}</h4>
+        </div>
+          <form [formGroup]="order" (ngSubmit)="submit(order.value)" class="row contact_form">
+            <input type="hidden" name="productid" formControlName="productid" />
+            
+            <div class="col lg-12">
+              <div class="form-group">
+                <label for="">Name :</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Your Full name" autocomplete="off"  formControlName="name"/>
+              </div>
+
+              <div class="form-group">
+                <label for="">Email :</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" autocomplete="off"  formControlName="email"/>
+              </div>
+
+              <div class="form-group">
+                <label for="">Phone Numbe :</label>
+                <input type="text" class="form-control" id="number" name="mobileno" placeholder="Phone Number" autocomplete="off"  formControlName="mobileno" />
+              </div>
+
+              <div class="form-group">
+                <label for="">Address:</label>
+                <textarea class="form-control" name="address" rows="1" placeholder="Address" formControlName="address" autocomplete="off"></textarea>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-lg-4">
+                  <label for="">Size : </label>
+                  <select class="form-control" name="size" formControlName="size">
+                    <option value="">Size</option>
+                    <option *ngFor="let size of product.sizes;" value="{{ size }}">{{ size }}</option>
+                  </select>
+                </div>
+
+                <div class="col-lg-4">
+                  <label for="">Color :</label>
+                  <select class="form-control" name="color" formControlName="color">
+                    <option value="">Color</option>
+                    <option *ngFor="let color of product.colors;" value="{{ color }}">{{ color }}</option>
+                  </select>
+             
+                </div>
+
+                <div class="col-lg-4">
+                  <label for=""> Pincode</label>
+                  <input type="text" placeholder="Pincode" class="form-control" name="pincode" formControlName="pincode"
+                    />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-lg-4">
+                  <label for="">Price :</label>
+                  <input type="number" placeholder="Price" class="form-control" name="price" formControlName="price" readonly />
+                </div>
+                <div class="col-lg-4">
+                  <label for="">Shipping :</label>
+                  <input type="number" placeholder="Shipping" class="form-control" name="shipping" 
+                    formControlName="shipping" readonly />
+                </div>
+                <div class="col-lg-4">
+                  <label for="">Quantity :</label>
+                  <input type="text" placeholder="quantity" class="form-control" name="quantity" formControlName="quantity" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-lg-6">
+                  <label for="">Total :</label>
+                  <input type="text" placeholder="totle" class="form-control" name="total" formControlName="total" />
+                </div>
+              </div>
+
+              <button type="submit" value="submit" class="btn_3" [disabled]="!order.valid">
+                Submit Now
+              </button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- </div> -->
+</section>
